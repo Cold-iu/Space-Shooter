@@ -1,9 +1,12 @@
 extends Area2D
 
-var speed = 5
-var damage = 1
+var speed = 10
+var Damage = 2
 var velocity = Vector2.ZERO
-# Called when the node enters the scene tree for the first time.
+var Explosion = load("res://Effects/Explosion.tscn")
+var Effects = null
+
+
 func _ready():
 	velocity = Vector2(0,speed).rotated(rotation) # Replace with function body.
 
@@ -22,13 +25,21 @@ func _on_timer_timeout():
 
 
 func _on_body_entered(body):
-	body.Health -= damage
+	body.Health -= Damage
 	print(body, "Took damage")
 	print(body.Health)
+	queue_free()
 	if body.Health <= 0:
 		body.queue_free()
+		var Effects = get_node_or_null("/root/Game/Effects")
+		if Effects != null:
+			var explosion = Explosion.instantiate()
+			Effects.add_child(explosion)
+			explosion.global_position = global_position
+			hide()
+			await explosion.animation_finished
 		Global.Score += 1
 		print(Global.Score)
-	queue_free()
+	
 	
 

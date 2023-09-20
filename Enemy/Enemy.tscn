@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1wvlb4kycti0"]
+
+[ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_v22an"]
+[ext_resource type="Texture2D" uid="uid://cb2id5k6243oh" path="res://Assets/Enemy_Ship.png" id="2_6i8a1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ptd5c"]
+radius = 40.0
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(240, 172)
+script = ExtResource("1_v22an")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.682353, 0.65)
+texture = ExtResource("2_6i8a1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.682353, 0.65)
+polygon = PackedVector2Array(-23.4483, -3.07692, -23.4483, -9.23077, -4.39655, -29.2308, -1.46552, -29.2308, -1.46552, -41.5385, 13.1897, -53.8462, 24.9138, -40, 24.9138, -27.6923, 27.8448, -27.6923, 45.431, -9.23077, 45.431, -3.07692, 24.9138, -3.07692, 24.9138, 9.23077, 16.1207, 9.23077, 13.1897, 24.6154, 10.2586, 9.23077, -1.46552, 9.23077, -1.46552, -4.61539)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.682353, 0.65)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(11.7241, -15.3846)
+shape = SubResource("CircleShape2D_ptd5c")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
