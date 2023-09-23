@@ -25,6 +25,8 @@ func damage(d):
 			hide() 
 			await explosion.animation_finished
 		queue_free()
+		Global.update_lives(-1)
+		Global.update_score(-50)
 
 func get_input():
 	var to_return = Vector2.ZERO
@@ -43,8 +45,8 @@ func _physics_process(delta):
 	velocity += get_input() * speed
 	velocity += get_input()*speed
 	velocity = velocity.normalized() * clamp(velocity.length(), 0, max_speed)
-	position.x = wrapf(position.x, 0.0, 1152.0)
-	position.y = wrapf(position.y, 0.0, 648.0)	
+	position.x = wrapf(position.x, 0.0, Global.VP.x)
+	position.y = wrapf(position.y, 0.0, Global.VP.y)	
 	move_and_slide()
 
 

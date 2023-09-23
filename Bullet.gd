@@ -14,8 +14,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position = position + velocity
-	position.x = wrapf(position.x, 0.0, 1152.0)
-	position.y = wrapf(position.y, 0.0, 648.0)	
+	position.x = wrapf(position.x, 0.0, Global.VP.x)
+	position.y = wrapf(position.y, 0.0, Global.VP.y)	
 	
 	
 
@@ -25,7 +25,7 @@ func _on_timer_timeout():
 
 
 func _on_body_entered(body):
-	body.Health -= Damage
+	body.damage(Damage)
 	print(body, "Took damage")
 	print(body.Health)
 	if body.Health <= 0:
@@ -37,8 +37,6 @@ func _on_body_entered(body):
 			explosion.global_position = global_position
 			hide()
 			await explosion.animation_finished
-		Global.Score += 1
-		print(Global.Score)
 	queue_free()
 	
 

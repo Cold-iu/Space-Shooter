@@ -14,8 +14,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position = position + velocity
-	position.x = wrapf(position.x, 0.0, 1152.0)
-	position.y = wrapf(position.y, 0.0, 648.0)	
+	position.x = wrapf(position.x, 0.0, Global.VP.x)
+	position.y = wrapf(position.y, 0.0, Global.VP.y)	
 	
 	
 

@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://t2b6tm0aoejk"]
+
+[ext_resource type="Script" path="res://UI/User_Interface.gd" id="1_5bh7y"]
+[ext_resource type="FontFile" uid="uid://b8hipudaifkpy" path="res://Assets/Fonts/Hyperspace.otf" id="2_u4u4p"]
+[ext_resource type="FontFile" uid="uid://dtwv46toy11la" path="res://Assets/Fonts/sofachrome rg.otf" id="3_jl0lx"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -248.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5bh7y")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_u4u4p")
+theme_override_font_sizes/font_size = 48
+text = "Welcome to Space Shooter!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 120.0
+offset_right = -177.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(7.69317, 2.4115)
+theme_override_fonts/font = ExtResource("3_jl0lx")
+theme_override_font_sizes/font_size = 12
+text = "PLAY"
+
+[node name="Quit_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = 64.0
+offset_right = -176.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(8.54547, 2.51215)
+theme_override_fonts/font = ExtResource("3_jl0lx")
+theme_override_font_sizes/font_size = 12
+text = "Quit
+"
+
+[connection signal="pressed" from="Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Quit_Button" to="." method="_on_play_button_pressed"]

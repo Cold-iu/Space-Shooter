@@ -12,7 +12,8 @@ var nose = Vector2(-10,100)
 func damage(d):
 	Health -= d
 	print(Health)
-	if Health <= 0:
+	if Health < 1:
+		Global.update_score(300)
 		queue_free()	
 
 func _on_timer_timeout():

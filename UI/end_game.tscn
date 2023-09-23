@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjpg8gb0se0uh"]
+
+[ext_resource type="Script" path="res://UI/end_game.gd" id="1_ipvpy"]
+[ext_resource type="FontFile" uid="uid://6kro71p6mg61" path="res://Assets/Fonts/Hyperspace Bold.otf" id="1_yro0s"]
+[ext_resource type="FontFile" uid="uid://dtwv46toy11la" path="res://Assets/Fonts/sofachrome rg.otf" id="2_kf123"]
+
+[node name="End_Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ipvpy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 400.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_yro0s")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgain_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = 12.0
+offset_right = -131.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.04769, 1.87111)
+theme_override_fonts/font = ExtResource("2_kf123")
+theme_override_font_sizes/font_size = 12
+text = "PLAY 
+AGAIN
+"
+
+[node name="Quit_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -200.0
+offset_right = -148.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(7.69317, 2.4115)
+theme_override_fonts/font = ExtResource("2_kf123")
+theme_override_font_sizes/font_size = 12
+text = "Quit
+"
+
+[connection signal="pressed" from="PlayAgain_Button" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="Quit_Button" to="." method="_on_quit_button_pressed"]

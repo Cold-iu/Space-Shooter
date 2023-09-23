@@ -17,7 +17,6 @@ scale = Vector2(5.399, 3)
 [node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource("3_1mvbl")]
 position = Vector2(900, 600)
 scale = Vector2(3, 3)
-collision_mask = 1
 
 [node name="Effects" type="Node2D" parent="."]
 
