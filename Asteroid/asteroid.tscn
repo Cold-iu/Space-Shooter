@@ -6,6 +6,8 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k5dp1"]
 
 [node name="Asteroid" type="CharacterBody2D"]
+scale = Vector2(-2.72251, 3.11356)
+motion_mode = 1
 script = ExtResource("1_lx1n8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

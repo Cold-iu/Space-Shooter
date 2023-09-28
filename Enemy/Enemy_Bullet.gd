@@ -30,6 +30,8 @@ func _on_body_entered(body):
 	print(body.Health)
 	queue_free()
 	if body.Health <= 0:
+		if body.name == "Player":
+			Global.update_lives(-1)
 		body.queue_free()
 		var Effects = get_node_or_null("/root/Game/Effects")
 		if Effects != null:

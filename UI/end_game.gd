@@ -13,7 +13,7 @@ func _process(delta):
 
 func _on_play_again_button_pressed():
 	Global.reset()
-	get_tree().change_scene_to_file("res://Assets/game.tscn") # Replace with function body.
+	get_tree().change_scene_to_file("res://UI/Main_Menu.tscn") # Replace with function body.
 
 
 func _on_quit_button_pressed():

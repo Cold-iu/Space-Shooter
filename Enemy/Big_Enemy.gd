@@ -1,10 +1,14 @@
 extends CharacterBody2D
 
 var Bullet = load("res://Enemy/Enemy_Bullet.tscn")
-var Damage = 10
-var Health = 10
-var x_positions = [150,300,450,600]
-var y_positions = [100,150,200,500,550]
+var Damage = 12
+var Health = 25
+
+var x_positions = [0,75,150,225,300,375,450,525,600]
+var y_positions = [0,75,150,225,300]
+var x_index = randi_range(0,x_positions.size()-1)
+var y_index = randi_range(0,y_positions.size()-1)
+
 var initial_position = Vector2.ZERO
 var direction = Vector2(1.5,0)
 var wobble = 30.0
@@ -14,7 +18,7 @@ func damage(d):
 	Health -= d
 	print(Health)
 	if Health < 1:
-		Global.update_score(300)
+		Global.update_score(500)
 		queue_free()	
 
 func _on_timer_timeout():
@@ -36,8 +40,8 @@ func _on_area_2d_body_entered(body):
 		print("Its a hit!")
 
 func _ready():
-	initial_position.x = x_positions[randi() % x_positions.size()]
-	initial_position.y = y_positions[randi() % y_positions.size()]
+	initial_position.x = x_positions[x_index]
+	initial_position.y = y_positions[y_index]
 	position = initial_position
 
 func _physics_process(_delta):

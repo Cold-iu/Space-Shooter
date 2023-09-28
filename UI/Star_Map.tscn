@@ -1,0 +1,165 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcc5vwf4ym5x6"]
+
+[ext_resource type="Script" path="res://UI/Star_Map.gd" id="1_giykh"]
+[ext_resource type="Texture2D" uid="uid://ds4px7vmudpvo" path="res://Assets/Planet_Map.jpg" id="2_6e0xe"]
+[ext_resource type="FontFile" uid="uid://dtwv46toy11la" path="res://Assets/Fonts/sofachrome rg.otf" id="3_8wy83"]
+[ext_resource type="Script" path="res://Assets/Map_HUD.gd" id="4_f0vje"]
+
+[node name="Star_Map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -248.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_giykh")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.305, 0.175)
+texture = ExtResource("2_6e0xe")
+centered = false
+
+[node name="Andromeda" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -488.0
+offset_top = 264.0
+offset_right = -295.0
+offset_bottom = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_8wy83")
+text = "Andromeda"
+
+[node name="Titan" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 296.0
+offset_top = 160.0
+offset_right = 489.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_8wy83")
+text = "Titan"
+
+[node name="Prima-iv" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = 64.0
+offset_right = 25.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_8wy83")
+text = "Prima-iv"
+
+[node name="Aos" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 336.0
+offset_right = 129.0
+offset_bottom = 364.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_8wy83")
+text = "Aos"
+
+[node name="k2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 440.0
+offset_top = -96.0
+offset_right = 487.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_8wy83")
+text = "K2"
+
+[node name="Alpha-Centauri" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -128.0
+offset_right = -11.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_8wy83")
+text = "Alpha-Centauri"
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+script = ExtResource("4_f0vje")
+
+[node name="Score" type="Label" parent="HUD"]
+layout_mode = 1
+offset_left = 10.0
+offset_right = 98.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 30
+text = "Score:"
+vertical_alignment = 1
+
+[node name="Indicator_Container" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Heading" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -178.5
+offset_right = 178.5
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Choose Your Destination"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Andromeda" to="." method="_on_andromeda_pressed"]
+[connection signal="pressed" from="Titan" to="." method="_on_titan_pressed"]
+[connection signal="pressed" from="Prima-iv" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Prima-iv" to="." method="_on_primaiv_pressed"]
+[connection signal="pressed" from="Aos" to="." method="_on_aos_pressed"]
+[connection signal="pressed" from="Aos" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="k2" to="." method="_on_k_2_pressed"]
+[connection signal="pressed" from="Alpha-Centauri" to="." method="_on_alpha_centauri_pressed"]
+[connection signal="pressed" from="Alpha-Centauri" to="." method="_on_play_button_pressed"]
